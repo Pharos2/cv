@@ -115,11 +115,11 @@ export default function Home() {
         </button>
       </div>
       
-      {/* Dynamic Neon Background */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] -left-[10%] w-[70vw] h-[70vw] bg-neon-emerald/10 rounded-full blur-[120px] animate-blob"></div>
-        <div className="absolute top-[30%] right-[-10%] w-[60vw] h-[60vw] bg-neon-cyan/10 rounded-full blur-[120px] animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[-20%] left-[20%] w-[80vw] h-[80vw] bg-neon-blue/10 rounded-full blur-[120px] animate-blob animation-delay-4000"></div>
+      {/* Static Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#06101e] to-[#030712]"></div>
+        <div className="absolute top-0 left-0 w-[55vw] h-[55vw] bg-neon-emerald/5 rounded-full blur-[160px]"></div>
+        <div className="absolute bottom-0 right-0 w-[55vw] h-[55vw] bg-neon-blue/5 rounded-full blur-[160px]"></div>
       </div>
 
       {/* SECTION 1: HERO */}
@@ -133,18 +133,13 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative mb-6"
           >
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full p-1 bg-white/10">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-white/15">
               <img 
                 src="/profile.jpg" 
                 alt="Serdar Temel" 
-                className="w-full h-full object-cover object-[center_20%] scale-110 rounded-full border-2 border-slate-900 shadow-[0_0_30px_rgba(0,242,255,0.3)] relative z-10"
+                className="w-full h-full object-cover object-[center_20%] scale-110"
               />
             </div>
-            <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-2 border border-neon-cyan/30 border-dashed rounded-full pointer-events-none"
-            ></motion.div>
           </motion.div>
 
           <motion.div
@@ -337,7 +332,8 @@ export default function Home() {
                   title: "Lunata",
                   desc: lang === 'tr' ? "Yapay zeka destekli, birçok alanda size yardımcı olan özel asistan maskotlarını içeren mobil uygulama." : "AI-powered mobile application featuring special assistant mascots to help you in many fields.",
                   tag: "React Native • TS • AI",
-                  img: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&q=80&w=800",
+                  img: "/lunata-mobile.jpg",
+                  objPos: "center 15%",
                   color: "purple",
                   linkUrl: "https://lunata-website.vercel.app/",
                   linkLabel: t.projectLabels.details,
@@ -348,7 +344,8 @@ export default function Home() {
                   title: "Lunata Web",
                   desc: lang === 'tr' ? "Lunata mobil uygulamasının tanıtım ve reklamı amacıyla hazırlanan, modern tasarımlı resmi web sitesi." : "Official website designed with a modern structure for the promotion and advertising of the Lunata mobile app.",
                   tag: "React • Tailwind CSS",
-                  img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+                  img: "/lunata-web.jpg",
+                  objPos: "center top",
                   color: "cyan",
                   linkUrl: "https://lunata-website.vercel.app/",
                   linkLabel: t.projectLabels.details,
@@ -359,7 +356,8 @@ export default function Home() {
                   title: "Mert Kitap Kırtasiye",
                   desc: lang === 'tr' ? "Modern ve kullanıcı dostu bir yapıya sahip, yerel bir işletme için tasarlanmış reklam amaçlı kurumsal web sitesi." : "A modern and user-friendly corporate website designed for advertising purposes for a local business.",
                   tag: "HTML/CSS • Tailwind CSS",
-                  img: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800",
+                  img: "/mert-kirtasiye.jpg",
+                  objPos: "center top",
                   color: "emerald",
                   linkUrl: "https://mert-kitap-kirtasiye.vercel.app/",
                   linkLabel: t.projectLabels.visit,
@@ -370,7 +368,8 @@ export default function Home() {
                   title: "Taskly",
                   desc: lang === 'tr' ? "Kullanıcı deneyimini ön planda tutan, basit ama oldukça şık tasarımlı kişisel To-Do List (Görev Yöneticisi) mobil uygulaması." : "A personal To-Do List mobile application with a simple yet elegant design that prioritizes user experience.",
                   tag: "React Native • UI/UX",
-                  img: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=800",
+                  img: "/taskly.jpg",
+                  objPos: "center",
                   color: "blue",
                   linkUrl: "https://github.com/Serdartml/mobilproje",
                   linkLabel: t.projectLabels.github,
@@ -380,19 +379,25 @@ export default function Home() {
               ].map((proj, i) => (
                 <motion.div 
                   key={i}
-                  whileHover={{ y: -5 }}
-                  className="group relative rounded-3xl overflow-hidden bg-[#0a0f1e] border border-white/5 shadow-2xl h-[200px] md:h-[280px] cursor-pointer"
+                  whileHover={{ y: -4 }}
+                  className="group relative rounded-3xl overflow-hidden bg-[#0a0f1e] border border-white/5 shadow-2xl cursor-pointer flex flex-col"
                   onClick={() => setSelectedProject(proj)}
                 >
-                  <img src={proj.img} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700" alt="" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-[#030712]/80 to-transparent"></div>
-                  
-                  <div className="absolute bottom-0 left-0 p-6 md:p-8 w-full">
-                    <span className={`px-2 py-0.5 rounded-full ${proj.tagClass} text-[9px] font-bold uppercase tracking-wider mb-2 inline-block`}>
+                  <div className="relative w-full h-52 md:h-60 overflow-hidden flex-shrink-0">
+                    <img
+                      src={proj.img}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                      style={{ objectPosition: (proj as any).objPos || 'center center' }}
+                      alt={proj.title}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0f1e]/30" />
+                  </div>
+                  <div className="p-5 md:p-6">
+                    <span className={`px-2.5 py-0.5 rounded-full ${proj.tagClass} text-[9px] font-bold uppercase tracking-wider mb-3 inline-block`}>
                       {proj.tag}
                     </span>
-                    <h4 className="text-xl md:text-3xl font-black mb-2 group-hover:text-neon-cyan transition-colors">{proj.title}</h4>
-                    <p className="text-slate-400 text-xs md:text-sm font-light mb-0 line-clamp-2 italic">"{proj.desc}"</p>
+                    <h4 className="text-lg md:text-xl font-black mb-2 group-hover:text-neon-cyan transition-colors">{proj.title}</h4>
+                    <p className="text-slate-400 text-xs font-light line-clamp-2 leading-relaxed italic">"{proj.desc}"</p>
                   </div>
                 </motion.div>
               ))}
@@ -450,7 +455,7 @@ export default function Home() {
               >
                 <X size={20} />
               </button>
-              <img src={selectedProject.img} className="w-full h-40 md:h-64 object-cover rounded-2xl mb-6 shadow-2xl relative z-10" alt="" />
+              <img src={selectedProject.img} style={{ objectPosition: selectedProject.objPos || 'center center' }} className="w-full h-52 md:h-80 object-contain bg-black/40 rounded-2xl mb-6 shadow-2xl relative z-10" alt="" />
               <div className="relative z-10">
                 <span className={`px-4 py-1.5 rounded-full ${selectedProject.tagClass} text-xs font-bold uppercase tracking-wider mb-4 inline-block`}>
                   {selectedProject.tag}
