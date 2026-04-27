@@ -368,7 +368,7 @@ export default function Home() {
                   title: "Taskly",
                   desc: lang === 'tr' ? "Kullanıcı deneyimini ön planda tutan, basit ama oldukça şık tasarımlı kişisel To-Do List (Görev Yöneticisi) mobil uygulaması." : "A personal To-Do List mobile application with a simple yet elegant design that prioritizes user experience.",
                   tag: "React Native • UI/UX",
-                  img: "/taskly.jpg",
+                  img: "/taskly.JPG",
                   objPos: "center",
                   color: "blue",
                   linkUrl: "https://github.com/Serdartml/mobilproje",
