@@ -186,7 +186,7 @@ export default function Home() {
             <a href="https://github.com/Serdartml" target="_blank" className="p-2.5 px-4 rounded-xl bg-white/5 hover:bg-white/10 hover:text-white text-slate-300 transition-all border border-white/5 hover:border-white/20 flex items-center gap-2 shadow-lg">
               <Github size={18} /> <span className="text-xs md:text-sm font-medium">GitHub</span>
             </a>
-            <a href="https://www.linkedin.com/in/serdar-temel-6679a8354/" target="_blank" className="p-2.5 px-4 rounded-xl bg-white/5 hover:bg-[#0077b5]/20 hover:text-[#0077b5] hover:border-[#0077b5]/50 text-slate-300 transition-all border border-white/5 flex items-center gap-2 shadow-lg">
+            <a href="https://www.linkedin.com/in/serdar-temel-087487408/" target="_blank" className="p-2.5 px-4 rounded-xl bg-white/5 hover:bg-[#0077b5]/20 hover:text-[#0077b5] hover:border-[#0077b5]/50 text-slate-300 transition-all border border-white/5 flex items-center gap-2 shadow-lg">
               <Linkedin size={18} /> <span className="text-xs md:text-sm font-medium">LinkedIn</span>
             </a>
           </motion.div>
